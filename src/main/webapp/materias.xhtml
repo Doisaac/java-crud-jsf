@@ -5,7 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Materias</title>
     </h:head>
     <h:body>
 
@@ -13,6 +13,9 @@
             <f:facet name="title">
                 Formulario de Materia
             </f:facet>
+            <p:panelGrid columns="1" layout="grid">
+                <p:commandButton style="margin-left: auto;" icon="pi pi-sign-out" value="Regresar" id="btn1" action="mater_regre"></p:commandButton>
+            </p:panelGrid>
             <f:view>
                 <h:form id="materiaForm">
                     <h:inputHidden id="id" value="#{indexController.materia.id}"></h:inputHidden>
@@ -27,7 +30,7 @@
                         <p:inputText id="codigo" value="#{indexController.materia.codigo}"></p:inputText>
                     </p:panelGrid>
                     <p:panelGrid columns="4" layout="grid">
-                        <p:commandButton value="Guardar" actionListener="#{indexController.guardarMateria()}" update="tablaMaterias materiaForm"></p:commandButton>
+                        <p:commandButton value="Guardar" icon="pi pi-save" actionListener="#{indexController.guardarMateria()}" update="tablaMaterias materiaForm"></p:commandButton>
                     </p:panelGrid>
                 </h:form>
             </f:view>
