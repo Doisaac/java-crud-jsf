@@ -35,8 +35,9 @@
             <f:view>
                 <h:form id='tablaAlumnos'>
                     <p:dataTable 
-                        rows="5" paginator="true" paginatorPosition="bottom" 
-                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rows="5"
+                        paginator="true" paginatorPosition="bottom"
+                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                         rowsPerPageTemplate="5,10,{ShowAll|'All'}"
                         value="#{indexController.alumnosList}" var="alumno">

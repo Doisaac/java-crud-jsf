@@ -11,54 +11,61 @@
 
         <p:card style="margin: 5%">
             <f:facet name="title">
-                Formulario de Alumno
+                Formulario de Materia
             </f:facet>
             <f:view>
-                <h:form id="alumnoForm">
-                    <h:inputHidden id="id" value="#{indexController.alumno.id}"></h:inputHidden>
+                <h:form id="materiaForm">
+                    <h:inputHidden id="id" value="#{indexController.materia.id}"></h:inputHidden>
                     <p:panelGrid columns="1" layout="grid">
                         <p:outputLabel value="Nombre"></p:outputLabel>
-                        <p:inputText id="nombre" value="#{indexController.alumno.nombre}"></p:inputText>
+                        <p:inputText id="nombre" value="#{indexController.materia.nombre}"></p:inputText>
 
-                        <p:outputLabel value="Carnet"></p:outputLabel>
-                        <p:inputText id="carnet" value="#{indexController.alumno.carnet}"></p:inputText>
+                        <p:outputLabel value="Descripción"></p:outputLabel>
+                        <p:inputText id="descripcion" value="#{indexController.materia.descripcion}"></p:inputText>
+                        
+                        <p:outputLabel value="Código"></p:outputLabel>
+                        <p:inputText id="codigo" value="#{indexController.materia.codigo}"></p:inputText>
                     </p:panelGrid>
                     <p:panelGrid columns="4" layout="grid">
-                        <p:commandButton value="Guardar" actionListener="#{indexController.guardarAlumno()}" update="tablaAlumnos alumnoForm"></p:commandButton>
+                        <p:commandButton value="Guardar" actionListener="#{indexController.guardarMateria()}" update="tablaMaterias materiaForm"></p:commandButton>
                     </p:panelGrid>
                 </h:form>
             </f:view>
         </p:card>
 
         <p:card style="margin: 5%">
-            <h1>Listado de Alumnos</h1>
+            <h1>Listado de Materias</h1>
             <f:view>
-                <h:form id='tablaAlumnos'>
+                <h:form id='tablaMaterias'>
                     <p:dataTable 
                         rows="5"
                         paginator="true" paginatorPosition="bottom"
                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                         rowsPerPageTemplate="5,10,{ShowAll|'All'}"
-                        value="#{indexController.alumnosList}" var="alumno">
+                        value="#{indexController.materiasList}" var="materia">
                         <p:column>
                             <f:facet name="header">ID</f:facet>
-                            <span>#{alumno.id}</span>
+                            <span>#{materia.id}</span>
                         </p:column>
                         <p:column>
                             <f:facet name="header">Nombre</f:facet>
-                            <span>#{alumno.nombre}</span>
+                            <span>#{materia.nombre}</span>
                         </p:column>
                         <p:column>
-                            <f:facet name="header">Carnet</f:facet>
-                            <span>#{alumno.carnet}</span>
+                            <f:facet name="header">Descripción</f:facet>
+                            <span>#{materia.descripcion}</span>
+                        </p:column>
+                         <p:column>
+                            <f:facet name="header">Código</f:facet>
+                            <span>#{materia.codigo}</span>
                         </p:column>
                         <p:column>
                             <f:facet name="header">Opciones</f:facet>
-                            <p:commandButton value="Editar" icon="pi pi-pencil" actionListener="#{indexController.llenarFormEditar(alumno)}" update="alumnoForm"></p:commandButton>
+                            <p:commandButton value="Editar" icon="pi pi-pencil" actionListener="#{indexController.llenarFormEditar(materia)}" update="materiaForm"></p:commandButton>
                             <p:spacer  width="10"/>
-                            <p:commandButton value="Eliminar" icon="pi pi-trash" style="background-color: red" action="#{indexController.eliminarAlumno(alumno)}" update="tablaAlumnos">
-                                <p:confirm header="Confirmar" message="¿Realmente desea eliminar al alumno: ${alumno.nombre}?" icon="pi pi-info-circle"/>
+                            <p:commandButton value="Eliminar" icon="pi pi-trash" style="background-color: red" action="#{indexController.eliminarMateria(materia)}" update="tablaMaterias">
+                                <p:confirm header="Confirmar" message="¿Realmente desea eliminar la materia: ${materia.nombre}?" icon="pi pi-info-circle"/>
                             </p:commandButton>
                         </p:column>
                     </p:dataTable>
@@ -71,6 +78,6 @@
                 </h:form>
             </f:view>
         </p:card>
-
+       
     </h:body>
 </html>
