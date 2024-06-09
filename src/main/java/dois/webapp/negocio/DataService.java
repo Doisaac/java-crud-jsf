@@ -1,6 +1,7 @@
 package dois.webapp.negocio;
 
 import dois.webapp.entidades.Alumno;
+import dois.webapp.entidades.Inscripciones;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -35,6 +36,18 @@ public class DataService {
     public void deleteAlumno(Alumno alumno) {
         Alumno alumnoAEliminar = entityManager.find(Alumno.class, alumno.getId());
         entityManager.remove(alumnoAEliminar);
+    }
+    
+    public List<Inscripciones> getInscripciones() {
+        Query query = entityManager.createQuery("SELECT i FROM Inscripciones i ORDER BY i.id DESC");
+             
+        List<Inscripciones> inscripciones = query.getResultList();
+        return inscripciones; 
+    }
+    
+    @Transactional
+    public void saveInscripcion(Inscripciones inscripcion) {
+        entityManager.persist(inscripcion);
     }
     
 }
