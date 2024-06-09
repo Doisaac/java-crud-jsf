@@ -1,7 +1,9 @@
 dois\webapp\controladores\IndexController.class
 dois\webapp\entidades\Inscripciones.class
 dois\webapp\resources\RecursoInscripciones.class
+dois\webapp\resources\RecursoMaterias.class
 dois\webapp\entidades\Alumno.class
+dois\webapp\entidades\Materia.class
 dois\webapp\resources\Recurso.class
 dois\webapp\negocio\DataService.class
 dois\webapp\resources\App.class
