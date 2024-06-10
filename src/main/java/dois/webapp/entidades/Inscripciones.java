@@ -110,24 +110,24 @@ public class Inscripciones implements Serializable {
     public Inscripciones() {
     }
 
-    public Inscripciones(Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
-        this.alumno = alumno;
-        this.materia = materia;
-        this.ciclo = ciclo;
-        this.anio = anio;
-        this.fechadeinscripcion = fechadeinscripcion;
-    }
-
-    public Inscripciones(Alumno alumno, Integer id, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
-        this.alumno = alumno;
+    public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio) {
         this.id = id;
+        this.alumno = alumno;
         this.materia = materia;
         this.ciclo = ciclo;
         this.anio = anio;
-        this.fechadeinscripcion = fechadeinscripcion;
     }
     
+    public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
+        this.id = id;
+        this.alumno = alumno;
+        this.materia = materia;
+        this.ciclo = ciclo;
+        this.anio = anio;
+        this.fechadeinscripcion = fechadeinscripcion;
+    }
 
+  
     public Alumno getAlumno() {
         return alumno;
     }
