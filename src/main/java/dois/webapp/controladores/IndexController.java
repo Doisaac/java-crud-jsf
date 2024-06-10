@@ -100,6 +100,9 @@ public class IndexController {
     }
 
     public void guardarInscripcion() {
+        
+        System.out.println("lo que tiene es: " + alumno);
+        
         servicio.saveInscripcion(inscripciones);
         
         inscripciones = new Inscripciones();
