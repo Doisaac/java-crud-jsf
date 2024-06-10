@@ -1,7 +1,6 @@
 package dois.webapp.resources;
 
 import dois.webapp.entidades.Inscripciones;
-import dois.webapp.entidades.Materia;
 import dois.webapp.negocio.DataService;
 import jakarta.ejb.EJB;
 import jakarta.ws.rs.Consumes;

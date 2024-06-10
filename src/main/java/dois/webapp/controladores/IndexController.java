@@ -81,6 +81,31 @@ public class IndexController {
         servicio.deleteMateria(materia);
         cargarMaterias();
     }
+    
+    /* INSCRIPCIONES */
+    public void cargarInscripciones() {
+        inscripcionesList = servicio.getInscripciones();
+    }
+
+    public List<Inscripciones> getInscripcionesList() {
+        return inscripcionesList;
+    }
+
+    public Inscripciones getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(Inscripciones inscripciones) {
+        this.inscripciones = inscripciones;
+    }
+
+    public void guardarInscripcion() {
+        servicio.saveInscripcion(inscripciones);
+        
+        inscripciones = new Inscripciones();
+        
+        cargarInscripciones();
+    }
 
     /* GETTERS AND SETTERS*/
     public List<Alumno> getAlumnosList() {
@@ -114,32 +139,6 @@ public class IndexController {
     public Materia getMateria() {
         return materia;
     }
-
-    /* INSCRIPCIONES */
-    public void cargarInscripciones() {
-        inscripcionesList = servicio.getInscripciones();
-    }
-
-    public List<Inscripciones> getInscripcionesList() {
-        return inscripcionesList;
-    }
-
-    public Inscripciones getInscripciones() {
-        return inscripciones;
-    }
-
-    public void setInscripciones(Inscripciones inscripciones) {
-        this.inscripciones = inscripciones;
-    }
-
-    public void guardarInscripcion() {
-        servicio.saveInscripcion(inscripciones);
-        
-        inscripciones = new Inscripciones();
-        
-        cargarInscripciones();
-    }
-    
     
 
 }
