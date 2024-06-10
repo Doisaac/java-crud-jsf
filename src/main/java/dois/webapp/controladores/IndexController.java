@@ -1,7 +1,7 @@
-
 package dois.webapp.controladores;
 
 import dois.webapp.entidades.Alumno;
+import dois.webapp.entidades.Inscripciones;
 import dois.webapp.entidades.Materia;
 import dois.webapp.negocio.DataService;
 import jakarta.annotation.PostConstruct;
@@ -18,24 +18,28 @@ import java.util.List;
 @Named
 @RequestScoped
 public class IndexController {
-    private List<Alumno> alumnosList = new ArrayList<>(); 
-    private Alumno alumno = new Alumno();
-    private List<Materia> materiasList = new ArrayList<>(); 
-    private Materia materia = new Materia();
 
-    @EJB 
+    private List<Alumno> alumnosList = new ArrayList<>();
+    private Alumno alumno = new Alumno();
+    private List<Materia> materiasList = new ArrayList<>();
+    private Materia materia = new Materia();
+    private Inscripciones inscripciones = new Inscripciones();
+    private List<Inscripciones> inscripcionesList = new ArrayList<>();
+
+    @EJB
     private DataService servicio;
 
     @PostConstruct
     public void init() {
         cargarAlumnos();
         cargarMaterias();
+        cargarInscripciones();
     }
 
     public void cargarAlumnos() {
         alumnosList = servicio.getAlumnos();
     }
-    
+
     public void guardarAlumno() {
         if (alumno.getId() != null) {
             servicio.editAlumno(alumno);
@@ -46,7 +50,7 @@ public class IndexController {
         cargarAlumnos();
     }
 
-    public void llenarFormEditar(Alumno alumno) { 
+    public void llenarFormEditar(Alumno alumno) {
         this.alumno = alumno;
     }
 
@@ -69,7 +73,7 @@ public class IndexController {
         cargarMaterias();
     }
 
-    public void llenarFormEditar(Materia materia) { 
+    public void llenarFormEditar(Materia materia) {
         this.materia = materia;
     }
 
@@ -77,9 +81,8 @@ public class IndexController {
         servicio.deleteMateria(materia);
         cargarMaterias();
     }
-    
-    /* GETTERS AND SETTERS*/
 
+    /* GETTERS AND SETTERS*/
     public List<Alumno> getAlumnosList() {
         return alumnosList;
     }
@@ -95,7 +98,7 @@ public class IndexController {
     public Alumno getAlumno() {
         return alumno;
     }
-    
+
     public List<Materia> getMateriasList() {
         return materiasList;
     }
@@ -111,5 +114,32 @@ public class IndexController {
     public Materia getMateria() {
         return materia;
     }
+
+    /* INSCRIPCIONES */
+    public void cargarInscripciones() {
+        inscripcionesList = servicio.getInscripciones();
+    }
+
+    public List<Inscripciones> getInscripcionesList() {
+        return inscripcionesList;
+    }
+
+    public Inscripciones getInscripciones() {
+        return inscripciones;
+    }
+
+    public void setInscripciones(Inscripciones inscripciones) {
+        this.inscripciones = inscripciones;
+    }
+
+    public void guardarInscripcion() {
+        servicio.saveInscripcion(inscripciones);
+        
+        inscripciones = new Inscripciones();
+        
+        cargarInscripciones();
+    }
     
+    
+
 }

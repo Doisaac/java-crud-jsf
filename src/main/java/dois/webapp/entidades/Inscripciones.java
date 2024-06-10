@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.io.Serializable;
@@ -19,14 +21,16 @@ public class Inscripciones implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inscripciones_id_seq")
     @SequenceGenerator(name = "inscripciones_id_seq", sequenceName = "inscripciones_id_seq", allocationSize = 1)
     
+    @ManyToOne
+    @JoinColumn(name = "idusuario")
+    private Alumno alumno;
+    
     @Column(name="id")
     private Integer id;
     
-    @Column(name="idusuario")
-    private Integer idusuario;
-    
-    @Column(name="idmateria")
-    private Integer idmateria;
+    @ManyToOne
+    @JoinColumn(name = "idmateria")
+    private Materia materia;
     
     @Column(name="ciclo")
     private String ciclo;
@@ -45,21 +49,14 @@ public class Inscripciones implements Serializable {
         this.id = id;
     }
 
-    public Integer getIdusuario() {
-        return idusuario;
+    public Materia getMateria() {
+        return materia;
     }
 
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
+    public void setMateria(Materia materia) {
+        this.materia = materia;
     }
 
-    public Integer getIdmateria() {
-        return idmateria;
-    }
-
-    public void setIdmateria(Integer idmateria) {
-        this.idmateria = idmateria;
-    }
 
     public String getCiclo() {
         return ciclo;
@@ -106,29 +103,38 @@ public class Inscripciones implements Serializable {
         final Inscripciones other = (Inscripciones) obj;
         return Objects.equals(this.id, other.id);
     }
-
+    
     public Inscripciones(Integer id) {
         this.id = id;
-    }
-
-    public Inscripciones(Integer id, Integer idusuario, Integer idmateria, String ciclo, short anio, Date fechadeinscripcion) {
-        this.id = id;
-        this.idusuario = idusuario;
-        this.idmateria = idmateria;
-        this.ciclo = ciclo;
-        this.anio = anio;
-        this.fechadeinscripcion = fechadeinscripcion;
     }
 
     public Inscripciones() {
     }
 
-    public Inscripciones(Integer idusuario, Integer idmateria, String ciclo, short anio, Date fechadeinscripcion) {
-        this.idusuario = idusuario;
-        this.idmateria = idmateria;
+    public Inscripciones(Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
+        this.alumno = alumno;
+        this.materia = materia;
+        this.ciclo = ciclo;
+        this.anio = anio;
+        this.fechadeinscripcion = fechadeinscripcion;
+    }
+
+    public Inscripciones(Alumno alumno, Integer id, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
+        this.alumno = alumno;
+        this.id = id;
+        this.materia = materia;
         this.ciclo = ciclo;
         this.anio = anio;
         this.fechadeinscripcion = fechadeinscripcion;
     }
     
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
 }
