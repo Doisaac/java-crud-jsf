@@ -17,27 +17,26 @@ import java.util.Objects;
 @Table(name="inscripciones")
 public class Inscripciones implements Serializable {
     
-    @Id
+     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inscripciones_id_seq")
     @SequenceGenerator(name = "inscripciones_id_seq", sequenceName = "inscripciones_id_seq", allocationSize = 1)
-    
+    @Column(name="id")
+    private Integer id;
+
     @ManyToOne
     @JoinColumn(name = "idusuario")
     private Alumno alumno;
-    
-    @Column(name="id")
-    private Integer id;
-    
+
     @ManyToOne
     @JoinColumn(name = "idmateria")
     private Materia materia;
-    
+
     @Column(name="ciclo")
     private String ciclo;
-    
+
     @Column(name="anio")
     private short anio;
-    
+
     @Column(name="fechadeinscripcion")
     private Date fechadeinscripcion;
 
@@ -111,24 +110,24 @@ public class Inscripciones implements Serializable {
     public Inscripciones() {
     }
 
-    public Inscripciones(Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
-        this.alumno = alumno;
-        this.materia = materia;
-        this.ciclo = ciclo;
-        this.anio = anio;
-        this.fechadeinscripcion = fechadeinscripcion;
-    }
-
-    public Inscripciones(Alumno alumno, Integer id, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
-        this.alumno = alumno;
+    public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio) {
         this.id = id;
+        this.alumno = alumno;
         this.materia = materia;
         this.ciclo = ciclo;
         this.anio = anio;
-        this.fechadeinscripcion = fechadeinscripcion;
     }
     
+    public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
+        this.id = id;
+        this.alumno = alumno;
+        this.materia = materia;
+        this.ciclo = ciclo;
+        this.anio = anio;
+        this.fechadeinscripcion = fechadeinscripcion;
+    }
 
+  
     public Alumno getAlumno() {
         return alumno;
     }
