@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 # 📘 Guía de Inicialización del Proyecto Java CRUD con JSF
 
 ## 🛠️ Requisitos Previos
@@ -117,8 +119,11 @@ Antes de todo, asegúrate de tener instalado Thunder Client en Visual Studio Cod
 > [!NOTE]  
 > De manera similar, realiza las operaciones CRUD para las rutas de `materias` e `inscripciones` utilizando los mismos pasos detallados anteriormente, cambiando los datos según lo necesario.
 
-
 ## 📌 Notas
 - Asegúrate de tener todos los componentes necesarios instalados y configurados correctamente.
 - Si encuentras algún problema durante el proceso, revisa los logs del servidor para más detalles.
 
+**¡Colaboradores que han hecho posible este proyecto!**
+ ![Contributors](https://contrib.rocks/image?repo=Doisaac/java-crud-jsf)
+ 
+<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
