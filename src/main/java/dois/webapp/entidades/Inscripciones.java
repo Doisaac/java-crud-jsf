@@ -17,18 +17,19 @@ import java.util.Objects;
 @Table(name="inscripciones")
 public class Inscripciones implements Serializable {
     
-     @Id
+    
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inscripciones_id_seq")
     @SequenceGenerator(name = "inscripciones_id_seq", sequenceName = "inscripciones_id_seq", allocationSize = 1)
     @Column(name="id")
     private Integer id;
-
+    
     @ManyToOne
-    @JoinColumn(name = "idusuario")
+    @JoinColumn(name = "idusuario",nullable = false)
     private Alumno alumno;
 
     @ManyToOne
-    @JoinColumn(name = "idmateria")
+    @JoinColumn(name = "idmateria",nullable = false)
     private Materia materia;
 
     @Column(name="ciclo")
@@ -82,6 +83,11 @@ public class Inscripciones implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Inscripciones{" + "id=" + id + ", alumno=" + alumno + ", materia=" + materia + ", ciclo=" + ciclo + ", anio=" + anio + ", fechadeinscripcion=" + fechadeinscripcion + '}';
+    }
+    
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 43 * hash + Objects.hashCode(this.id);
@@ -103,21 +109,16 @@ public class Inscripciones implements Serializable {
         return Objects.equals(this.id, other.id);
     }
     
+    public Inscripciones() {
+        this.alumno = new Alumno();
+        this.materia = new Materia();
+    }
+    
     public Inscripciones(Integer id) {
         this.id = id;
     }
 
-    public Inscripciones() {
-    }
 
-    public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio) {
-        this.id = id;
-        this.alumno = alumno;
-        this.materia = materia;
-        this.ciclo = ciclo;
-        this.anio = anio;
-    }
-    
     public Inscripciones(Integer id, Alumno alumno, Materia materia, String ciclo, short anio, Date fechadeinscripcion) {
         this.id = id;
         this.alumno = alumno;

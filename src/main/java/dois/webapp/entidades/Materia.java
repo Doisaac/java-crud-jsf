@@ -1,13 +1,17 @@
 package dois.webapp.entidades;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -32,6 +36,9 @@ public class Materia implements Serializable{
     
     @Column(name = "codigo")
     private String codigo;
+    
+    @OneToMany(mappedBy = "materia", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Inscripciones> inscripciones = new ArrayList<>();
     
 
     public Integer getId() {
@@ -65,13 +72,14 @@ public class Materia implements Serializable{
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.id);
+        hash = 17 * hash + Objects.hashCode(this.id);
         return hash;
     }
+    
 
     @Override
     public boolean equals(Object obj) {
