@@ -23,6 +23,9 @@ public class DataService {
         List<Alumno> alumnos = query.getResultList();
         return alumnos;   
     }
+    public Alumno findAlumnoById(Integer id) {
+        return entityManager.find(Alumno.class, id);
+    }
     
     @Transactional
     public void saveAlumno(Alumno alumno) {
@@ -45,6 +48,10 @@ public class DataService {
              
         List<Materia> materias = query.getResultList();
         return materias;   
+    }
+    
+    public Materia findMateriaById(Integer id) {
+        return entityManager.find(Materia.class, id);
     }
     
     @Transactional

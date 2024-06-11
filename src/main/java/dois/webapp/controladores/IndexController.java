@@ -103,6 +103,18 @@ public class IndexController {
         
         System.out.println("lo que tiene es: " + alumno);
         
+        
+        alumno = servicio.findAlumnoById(inscripciones.getAlumno().getId());
+        materia = servicio.findMateriaById(inscripciones.getMateria().getId());
+
+ 
+        if (alumno == null || materia == null) {
+            return;
+        }
+
+        inscripciones.setAlumno(alumno);
+        inscripciones.setMateria(materia);
+          
         servicio.saveInscripcion(inscripciones);
         
         inscripciones = new Inscripciones();
