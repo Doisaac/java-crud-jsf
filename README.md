@@ -124,6 +124,7 @@ Antes de todo, asegúrate de tener instalado Thunder Client en Visual Studio Cod
 - Si encuentras algún problema durante el proceso, revisa los logs del servidor para más detalles.
 
 **¡Colaboradores que han hecho posible este proyecto!**
- ![Contributors](https://contrib.rocks/image?repo=Doisaac/java-crud-jsf)
+
+![Contributors](https://contrib.rocks/image?repo=Doisaac/java-crud-jsf)
  
 <p align="right">(<a href="#readme-top">volver arriba</a>)</p>
