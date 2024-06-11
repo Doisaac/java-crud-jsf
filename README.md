@@ -114,6 +114,10 @@ Antes de todo, asegúrate de tener instalado Thunder Client en Visual Studio Cod
 4. Ingresa la URL: `http://localhost:8080/appweb/api/alumnos/{id}` (reemplaza `{id}` con el ID del alumno que deseas eliminar).
 5. Haz clic en `Send`.
 
+> [!NOTE]  
+> De manera similar, realiza las operaciones CRUD para las rutas de `materias` e `inscripciones` utilizando los mismos pasos detallados anteriormente, cambiando los datos según lo necesario.
+
+
 ## 📌 Notas
 - Asegúrate de tener todos los componentes necesarios instalados y configurados correctamente.
 - Si encuentras algún problema durante el proceso, revisa los logs del servidor para más detalles.
