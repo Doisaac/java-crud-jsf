@@ -97,7 +97,7 @@ Antes de todo, asegúrate de tener instalado Thunder Client en Visual Studio Cod
 1. Abre Thunder Client en Visual Studio Code.
 2. Haz clic en `New Request`.
 3. Selecciona el método `PUT`.
-4. Ingresa la URL: `http://localhost:8080/appweb/api/alumnos/{id}` (reemplaza `{id}` con el ID del alumno que deseas actualizar).
+4. Ingresa la URL: `http://localhost:8080/appweb/api/alumnos`
 5. Ve a la pestaña `Body` y selecciona `JSON`.
 6. Ingresa los datos actualizados del alumno en formato JSON, por ejemplo:
     ```json
