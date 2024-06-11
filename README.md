@@ -62,7 +62,7 @@
 3. Hacer clic en `Run`.
 
 ### 9. 👁️ Verificar la Aplicación
-1. Acceder a la aplicación en `http://localhost:8080/java-crud-jsf`.
+1. Acceder a la aplicación en `http://localhost:8080/appweb`.
    
 
 # 📘 Operaciones CRUD con Thunder Client
